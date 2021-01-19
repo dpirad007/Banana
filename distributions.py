@@ -1,6 +1,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
+from math import comb
 
 
 class Distribution:
@@ -18,7 +19,7 @@ class Distribution:
 
     def normal(self, probablity_density=False):
         '''
-        Input: probablity_density function(deafult: False)
+        Input: probablity_density function(default: False)
         Output: Normally Distributed Histogram
         '''
         if probablity_density:
@@ -59,7 +60,7 @@ class Distribution:
             sum_of_estimated_arr += j
         estimated_mean = sum_of_estimated_arr/len(estimated_arr)
 
-        # Population Varience
+        # Estimated Varience
         sum_of_diff_estimated = 0
         for b in estimated_arr:
             sum_of_diff_estimated += (b-estimated_mean)**2
@@ -69,3 +70,18 @@ class Distribution:
             population_mean, estimated_mean))
         print("Population varience is {}, Estimated Varience is {}".format(
             population_varience, estimated_varience))
+
+    def binomial(self, trials=5, probablity_of_success=0.5):
+        '''
+        Input: trials(default:5) probablity_of_success(default:0.5)
+        Output: Bar Graph of probality of success for each trial
+        '''
+        x_data = []
+        y_data = []
+        for i in range(trials+1):
+            x_data.append(i)
+            probablity = comb(trials, i)*(probablity_of_success)**i * \
+                (1-probablity_of_success)**(trials-i)
+            y_data.append(probablity)
+        plt.bar(x_data, y_data)
+        plt.show()
