@@ -71,9 +71,9 @@ class Distribution:
         print("Population varience is {}, Estimated Varience is {}".format(
             population_varience, estimated_varience))
 
-    def binomial(self, trials=5, probablity_of_success=0.5):
+    def binomial(self, probablity_of_success=0.5, trials=5):
         '''
-        Input: trials(default:5) probablity_of_success(default:0.5)
+        Input: probablity_of_success(default:0.5) trials(default:5)
         Output: Bar Graph of probality of success for each trial
         '''
         x_data = []
@@ -87,6 +87,10 @@ class Distribution:
         plt.show()
 
     def poisson(self, average_in_time=2.5, steps=10):
+        '''
+        Input: average_in_time(Lambda)(default:2.5) max_steps(default:10)
+        Output: Bar Graph of probality of success
+        '''
         x_data = []
         y_data = []
         for i in range(steps):
