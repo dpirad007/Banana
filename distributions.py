@@ -1,7 +1,7 @@
 
 import matplotlib.pyplot as plt
 import numpy as np
-from math import comb
+from math import comb, e, factorial
 
 
 class Distribution:
@@ -85,3 +85,18 @@ class Distribution:
             y_data.append(probablity)
         plt.bar(x_data, y_data)
         plt.show()
+
+    def poisson(self, average_in_time=2.5, steps=10):
+        x_data = []
+        y_data = []
+        for i in range(steps):
+            x_data.append(i)
+            probablity = (average_in_time**i) * \
+                (e**(-average_in_time))/(factorial(i))
+            y_data.append(probablity)
+        plt.bar(x_data, y_data)
+        plt.show()
+
+
+dist = Distribution()
+dist.poisson()
