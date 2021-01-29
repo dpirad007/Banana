@@ -88,6 +88,9 @@ class Distribution:
 
     def poisson(self, average_in_time=2.5, steps=10):
         '''
+        ========
+        In Beta (Explanation Improvement needed)
+        ========
         Input: average_in_time(Lambda)(default:2.5) max_steps(default:10)
         Output: Bar Graph of probality of success
         '''
